@@ -1,1 +1,267 @@
-<h1>Welcome to the home page</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Indicator</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            background:linear-gradient(135deg,#4f46e5,#06b6d4,#8b5cf6);
+            color:white;
+        }
+
+        .navbar{
+            width:100%;
+            padding:20px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:700;
+        }
+
+        .nav-btn{
+            text-decoration:none;
+            color:white;
+            padding:12px 25px;
+            border:2px solid rgba(255,255,255,0.3);
+            border-radius:50px;
+            transition:.3s;
+        }
+
+        .nav-btn:hover{
+            background:white;
+            color:#4f46e5;
+        }
+
+        .hero{
+            min-height:90vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:40px 8%;
+            gap:50px;
+        }
+
+        .hero-text{
+            flex:1;
+        }
+
+        .hero-text h1{
+            font-size:4rem;
+            line-height:1.2;
+            margin-bottom:20px;
+        }
+
+        .hero-text p{
+            font-size:1.1rem;
+            line-height:1.8;
+            margin-bottom:30px;
+            max-width:600px;
+        }
+
+        .btn{
+            display:inline-block;
+            text-decoration:none;
+            background:white;
+            color:#4f46e5;
+            padding:15px 35px;
+            border-radius:12px;
+            font-weight:600;
+            transition:.3s;
+        }
+
+        .btn:hover{
+            transform:translateY(-5px);
+        }
+
+        .hero-image{
+            flex:1;
+            text-align:center;
+        }
+
+        .hero-image img{
+            width:100%;
+            max-width:500px;
+        }
+
+        .features{
+            padding:80px 8%;
+        }
+
+        .section-title{
+            text-align:center;
+            margin-bottom:50px;
+        }
+
+        .section-title h2{
+            font-size:2.5rem;
+        }
+
+        .feature-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:25px;
+        }
+
+        .card{
+            background:rgba(255,255,255,0.15);
+            backdrop-filter:blur(20px);
+            padding:30px;
+            border-radius:20px;
+            text-align:center;
+            transition:.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-10px);
+        }
+
+        .card h3{
+            margin:15px 0;
+        }
+
+        .about{
+            padding:80px 8%;
+        }
+
+        .about-box{
+            background:rgba(255,255,255,0.15);
+            backdrop-filter:blur(20px);
+            padding:50px;
+            border-radius:25px;
+            text-align:center;
+        }
+
+        .about-box h2{
+            margin-bottom:20px;
+        }
+
+        footer{
+            text-align:center;
+            padding:30px;
+            margin-top:50px;
+            background:rgba(0,0,0,0.1);
+        }
+
+        @media(max-width:900px){
+            .hero{
+                flex-direction:column;
+                text-align:center;
+            }
+
+            .hero-text h1{
+                font-size:2.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🎓 Student Performance Indicator</div>
+
+        <a href="/predictdata" class="nav-btn">
+            Predict Score
+        </a>
+    </nav>
+
+    <section class="hero">
+
+        <div class="hero-text">
+            <h1>
+                Predict Student Performance Using AI & Machine Learning
+            </h1>
+
+            <p>
+                Analyze student academic data and instantly predict Mathematics
+                performance using a Machine Learning model trained on educational
+                datasets. Get accurate insights in seconds.
+            </p>
+
+            <a href="/predictdata" class="btn">
+                🚀 Start Prediction
+            </a>
+        </div>
+
+        <div class="hero-image">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" alt="Student">
+        </div>
+
+    </section>
+
+    <section class="features">
+
+        <div class="section-title">
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="feature-grid">
+
+            <div class="card">
+                <h3>📊 Smart Prediction</h3>
+                <p>Predict Mathematics scores using Machine Learning algorithms.</p>
+            </div>
+
+            <div class="card">
+                <h3>⚡ Instant Results</h3>
+                <p>Get predictions within seconds after entering student details.</p>
+            </div>
+
+            <div class="card">
+                <h3>🎯 Accurate Insights</h3>
+                <p>Uses academic and demographic factors for better accuracy.</p>
+            </div>
+
+            <div class="card">
+                <h3>💻 User Friendly</h3>
+                <p>Modern responsive interface designed for all devices.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="about">
+
+        <div class="about-box">
+            <h2>About The Project</h2>
+
+            <p>
+                Student Performance Indicator is an end-to-end Machine Learning
+                project developed using Python, Flask, Pandas, NumPy and
+                Scikit-Learn. The model predicts student Mathematics scores
+                based on factors such as Gender, Ethnicity, Parental Education,
+                Lunch Type, Test Preparation Course, Reading Score and
+                Writing Score.
+            </p>
+
+            <br>
+
+            <a href="/predictdata" class="btn">
+                Predict Now
+            </a>
+        </div>
+
+    </section>
+
+    <footer>
+        © 2026 Student Performance Indicator | Developed by Divyesh Chavda
+    </footer>
+
+</body>
+</html>
