@@ -112,6 +112,9 @@ class ModelTrainer:
                 file_path = self.model_trainer_config.trained_model_file_path, obj = best_model
             )
 
+            print("Best Model:", best_model_name)
+            print("Best Score:", best_model_score)
+
             predicted = best_model.predict(X_test)
 
             r2_square = r2_score(y_test, predicted)
