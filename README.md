@@ -73,11 +73,13 @@ Student_Performance_Indicator/
 
 ├── templates/
 
-│ ├── home.html
+
 
 │ └── index.html
 
-├── app.py
+├── application.py
+
+├── static/ (css/style.css, js/main.js)
 
 ├── requirements.txt
 
@@ -135,7 +137,7 @@ pip install -r requirements.txt
 ### Run Application
 
 ```bash
-python app.py
+python application.py
 ```
 
 Open your browser and visit:

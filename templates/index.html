@@ -1,267 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Performance Indicator</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:'Poppins',sans-serif;
-        }
-
-        body{
-            min-height:100vh;
-            background:linear-gradient(135deg,#4f46e5,#06b6d4,#8b5cf6);
-            color:white;
-        }
-
-        .navbar{
-            width:100%;
-            padding:20px 8%;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-        }
-
-        .logo{
-            font-size:28px;
-            font-weight:700;
-        }
-
-        .nav-btn{
-            text-decoration:none;
-            color:white;
-            padding:12px 25px;
-            border:2px solid rgba(255,255,255,0.3);
-            border-radius:50px;
-            transition:.3s;
-        }
-
-        .nav-btn:hover{
-            background:white;
-            color:#4f46e5;
-        }
-
-        .hero{
-            min-height:90vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            padding:40px 8%;
-            gap:50px;
-        }
-
-        .hero-text{
-            flex:1;
-        }
-
-        .hero-text h1{
-            font-size:2.5rem;
-            line-height:1.2;
-            margin-bottom:20px;
-        }
-
-        .hero-text p{
-            font-size:1.1rem;
-            line-height:1.8;
-            margin-bottom:30px;
-            max-width:600px;
-        }
-
-        .btn{
-            display:inline-block;
-            text-decoration:none;
-            background:white;
-            color:#4f46e5;
-            padding:15px 35px;
-            border-radius:12px;
-            font-weight:600;
-            transition:.3s;
-        }
-
-        .btn:hover{
-            transform:translateY(-5px);
-        }
-
-        .hero-image{
-            flex:1;
-            text-align:center;
-        }
-
-        .hero-image img{
-            width:100%;
-            max-width:400px;
-        }
-
-        .features{
-            padding:80px 8%;
-        }
-
-        .section-title{
-            text-align:center;
-            margin-bottom:50px;
-        }
-
-        .section-title h2{
-            font-size:2.5rem;
-        }
-
-        .feature-grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:25px;
-        }
-
-        .card{
-            background:rgba(255,255,255,0.15);
-            backdrop-filter:blur(20px);
-            padding:30px;
-            border-radius:20px;
-            text-align:center;
-            transition:.3s;
-        }
-
-        .card:hover{
-            transform:translateY(-10px);
-        }
-
-        .card h3{
-            margin:15px 0;
-        }
-
-        .about{
-            padding:80px 8%;
-        }
-
-        .about-box{
-            background:rgba(255,255,255,0.15);
-            backdrop-filter:blur(20px);
-            padding:50px;
-            border-radius:25px;
-            text-align:center;
-        }
-
-        .about-box h2{
-            margin-bottom:20px;
-        }
-
-        footer{
-            text-align:center;
-            padding:30px;
-            margin-top:50px;
-            background:rgba(0,0,0,0.1);
-        }
-
-        @media(max-width:900px){
-            .hero{
-                flex-direction:column;
-                text-align:center;
-            }
-
-            .hero-text h1{
-                font-size:2.8rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Performance Predictor | AI-Powered Math Score Prediction</title>
+<meta name="description" content="Predict a student's Mathematics score with a machine learning model trained on academic and demographic data.">
+<meta name="theme-color" content="#070b1f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset=".5" stop-color="#6366f1"/><stop offset="1" stop-color="#a855f7"/></linearGradient>
+<symbol id="i-logo" viewBox="0 0 24 24"><path d="M4 17l5-6 4 3 7-9"/><circle cx="4" cy="17" r="1.4"/><circle cx="9" cy="11" r="1.4"/><circle cx="13" cy="14" r="1.4"/><circle cx="20" cy="5" r="1.4"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 17v4M17 19h4"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+<symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 3 9 3 12 0v-5"/></symbol>
+<symbol id="i-lunch" viewBox="0 0 24 24"><path d="M7 3v8M4 3v5a3 3 0 006 0V3M7 11v10M17 3c-2 2-3 5-3 8h3v10"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9zM9 14l2 2 4-4"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M2 5c4-1 7 0 10 2 3-2 6-3 10-2v14c-4-1-7 0-10 2-3-2-6-3-10-2zM12 7v14"/></symbol>
+<symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16z"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-code" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></symbol>
+<symbol id="i-device" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+<symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.5"/></symbol>
+</defs></svg>
 
-    <nav class="navbar">
-        <div class="logo">🎓 Student Performance Indicator</div>
+<div class="bg" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i><i class="grid"></i></div>
 
-        <a href="https://github.com/DivyeshChavda77/Student_Performance_Indicator" class="nav-btn" target="_blank">
-            Github Repo
-        </a>
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand"><span class="logo"><svg class="ic"><use href="#i-logo"/></svg></span>
+      <span>Student Performance Predictor</span><em class="badge"><svg class="ic"><use href="#i-spark"/></svg>AI</em></a>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="links"><svg class="ic o"><use href="#i-menu"/></svg><svg class="ic x"><use href="#i-x"/></svg></button>
+    <nav class="links" id="links">
+      <a href="#top">Home</a><a href="#features">Features</a><a href="#predict">Predict</a><a href="#about">About</a>
+      <a class="gh" href="https://github.com/DivyeshChavda77/Student_Performance_Indicator" target="_blank" rel="noopener"><svg class="ic"><use href="#i-code"/></svg>GitHub</a>
     </nav>
+  </div>
+</header>
 
-    <section class="hero">
+<main id="top">
+<section class="hero wrap">
+  <div class="hero-copy">
+    <span class="pill"><i class="dot"></i>Machine Learning Powered</span>
+    <h1>Predict Student Academic Performance with <span class="grad">AI</span></h1>
+    <p>Enter a student's academic and demographic profile and get an instant Mathematics score prediction from a trained machine learning model.</p>
+    <div class="cta"><a href="#predict" class="btn"><span>Start Prediction</span><svg class="ic"><use href="#i-arrow"/></svg></a>
+      <a href="#features" class="btn ghost">How it works</a></div>
+    <ul class="stats"><li><b>7</b><span>input features</span></li><li><b>1</b><span>click to predict</span></li><li><b>0</b><span>page reloads</span></li></ul>
+  </div>
+  <div class="hero-vis" aria-hidden="true">
+    <svg viewBox="0 0 460 380" class="net">
+      <g class="lines" fill="none" stroke="url(#g)" stroke-width="1.4">
+        <path d="M130 30C210 30 210 190 285 190"/><path d="M130 85C210 85 210 190 285 190"/><path d="M130 140C200 140 215 190 285 190"/><path d="M130 195H285"/>
+        <path d="M130 250C200 250 215 190 285 190"/><path d="M130 305C210 305 210 190 285 190"/><path d="M130 360C210 360 210 190 285 190"/><path d="M330 190H372"/>
+      </g>
+      <g class="in" font-size="12" font-family="Inter,sans-serif">
+        <rect x="6" y="14" width="124" height="32" rx="16"/><text x="68" y="34">Gender</text>
+        <rect x="6" y="69" width="124" height="32" rx="16"/><text x="68" y="89">Ethnicity</text>
+        <rect x="6" y="124" width="124" height="32" rx="16"/><text x="68" y="144">Parent education</text>
+        <rect x="6" y="179" width="124" height="32" rx="16"/><text x="68" y="199">Lunch</text>
+        <rect x="6" y="234" width="124" height="32" rx="16"/><text x="68" y="254">Test prep</text>
+        <rect x="6" y="289" width="124" height="32" rx="16"/><text x="68" y="309">Reading score</text>
+        <rect x="6" y="344" width="124" height="32" rx="16"/><text x="68" y="364">Writing score</text>
+      </g>
+      <circle class="core" cx="307" cy="190" r="26"/><circle class="ring" cx="307" cy="190" r="40"/>
+      <text x="307" y="195" text-anchor="middle" class="core-t">ML</text>
+      <g class="out"><rect x="372" y="168" width="82" height="44" rx="14"/><text x="413" y="188" text-anchor="middle">Math</text><text x="413" y="203" text-anchor="middle">score</text></g>
+      <circle r="4" class="pulse"><animateMotion dur="3s" repeatCount="indefinite" path="M130 195H285"/></circle>
+      <circle r="4" class="pulse"><animateMotion dur="3.6s" begin="0s" repeatCount="indefinite" path="M130 30C210 30 210 190 285 190"/></circle>
+      <circle r="4" class="pulse"><animateMotion dur="4.1s" begin="0s" repeatCount="indefinite" path="M130 360C210 360 210 190 285 190"/></circle>
+    </svg>
+    <div class="chip c1"><i class="dot"></i>Real-time inference</div>
+    <div class="chip c2"><svg class="ic"><use href="#i-chart"/></svg>Scikit-learn pipeline</div>
+  </div>
+</section>
 
-        <div class="hero-text">
-            <h1>
-                Predict Student Performance Using AI & Machine Learning
-            </h1>
+<section class="sec wrap" id="features">
+  <div class="head rv"><span class="eyebrow">Features</span><h2>Built like a real analytics product</h2><p>From raw student data to a prediction in a single step.</p></div>
+  <div class="cards">
+    <article class="card rv"><span class="ico"><svg class="ic"><use href="#i-chart"/></svg></span><h3>Smart Prediction</h3><p>Predict Mathematics scores using machine learning algorithms.</p></article>
+    <article class="card rv"><span class="ico"><svg class="ic"><use href="#i-bolt"/></svg></span><h3>Instant Results</h3><p>Get predictions within seconds after entering student details.</p></article>
+    <article class="card rv"><span class="ico"><svg class="ic"><use href="#i-target"/></svg></span><h3>Accurate Insights</h3><p>Uses academic and demographic factors for better accuracy.</p></article>
+    <article class="card rv"><span class="ico"><svg class="ic"><use href="#i-device"/></svg></span><h3>User Friendly</h3><p>Modern responsive interface designed for all devices.</p></article>
+  </div>
+</section>
 
-            <p>
-                Analyze student academic data and instantly predict Mathematics
-                performance using a Machine Learning model trained on educational
-                datasets. Get accurate insights in seconds.
-            </p>
+<section class="sec wrap" id="predict">
+  <div class="head rv"><span class="eyebrow">Prediction Studio</span><h2>Predict Maths Score</h2><p>Fill in the student information below.</p></div>
+  <form id="form" class="panel rv" action="{{ url_for('predict_datapoint') }}" method="post">
+    <div class="err" id="banner" role="alert" hidden><svg class="ic"><use href="#i-warn"/></svg><span></span></div>
+    <h3 class="grp">Student profile</h3>
+    <div class="fgrid">
+      <div class="field"><label for="gender">Gender</label><div class="ctl"><svg class="ic lead"><use href="#i-user"/></svg>
+        <select id="gender" name="gender" required><option value="" disabled selected>Select Gender</option><option value="male">Male</option><option value="female">Female</option></select></div><small class="msg"></small></div>
+      <div class="field"><label for="race_ethnicity">Race / Ethnicity</label><div class="ctl"><svg class="ic lead"><use href="#i-globe"/></svg>
+        <select id="race_ethnicity" name="race_ethnicity" required><option value="" disabled selected>Select Ethnicity</option><option value="group A">Group A</option><option value="group B">Group B</option><option value="group C">Group C</option><option value="group D">Group D</option><option value="group E">Group E</option></select></div><small class="msg"></small></div>
+      <div class="field"><label for="parental_level_of_education">Parental Education</label><div class="ctl"><svg class="ic lead"><use href="#i-cap"/></svg>
+        <select id="parental_level_of_education" name="parental_level_of_education" required><option value="" disabled selected>Select Education</option><option value="associate's degree">Associate's Degree</option><option value="bachelor's degree">Bachelor's Degree</option><option value="master's degree">Master's Degree</option><option value="high school">High School</option><option value="some college">Some College</option><option value="some high school">Some High School</option></select></div><small class="msg"></small></div>
+      <div class="field"><label for="lunch">Lunch Type</label><div class="ctl"><svg class="ic lead"><use href="#i-lunch"/></svg>
+        <select id="lunch" name="lunch" required><option value="" disabled selected>Select Lunch</option><option value="standard">Standard</option><option value="free/reduced">Free / Reduced</option></select></div><small class="msg"></small></div>
+      <div class="field full"><label for="test_preparation_course">Test Preparation Course</label><div class="ctl"><svg class="ic lead"><use href="#i-check"/></svg>
+        <select id="test_preparation_course" name="test_preparation_course" required><option value="" disabled selected>Select Course</option><option value="completed">Completed</option><option value="none">None</option></select></div><small class="msg"></small></div>
+    </div>
+    <h3 class="grp">Academic scores</h3>
+    <div class="fgrid">
+      <div class="field"><label for="reading_score">Reading Score</label><div class="ctl"><svg class="ic lead"><use href="#i-book"/></svg>
+        <input id="reading_score" type="number" name="reading_score" min="0" max="100" inputmode="numeric" placeholder="Enter Reading Score (0-100)" required><span class="suf">/100</span></div><small class="msg"></small></div>
+      <div class="field"><label for="writing_score">Writing Score</label><div class="ctl"><svg class="ic lead"><use href="#i-pen"/></svg>
+        <input id="writing_score" type="number" name="writing_score" min="0" max="100" inputmode="numeric" placeholder="Enter Writing Score (0-100)" required><span class="suf">/100</span></div><small class="msg"></small></div>
+    </div>
+    <button class="btn big" id="submit" type="submit"><svg class="ic spark"><use href="#i-spark"/></svg><span class="lbl">Predict Maths Score</span><span class="spin" aria-hidden="true"></span></button>
+  </form>
 
-            <a href="/predictdata" class="btn">
-                🚀 Start Prediction
-            </a>
+  <div id="result" class="result" {% if results is not defined %}hidden{% endif %} {% if results is defined %}data-score="{{ results }}"{% endif %} aria-live="polite">
+    <div class="rcard">
+      <span class="eyebrow dark">Prediction complete</span>
+      <h3>Predicted Mathematics Score</h3>
+      <div class="rbody">
+        <div class="gauge">
+          <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="84" class="track"/><circle cx="100" cy="100" r="84" class="arc" id="arc" stroke="url(#g)"/></svg>
+          <div class="gnum"><b id="score">0</b><span>out of 100</span></div>
         </div>
-
-        <div class="hero-image">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" alt="Student">
+        <div class="rside">
+          <span class="tier" id="tier"></span>
+          <div class="scale" aria-hidden="true"><i class="mark" id="mark"></i></div>
+          <div class="scale-l" aria-hidden="true"><span style="left:0">0</span><span style="left:50%">50</span><span style="left:70%">70</span><span style="left:85%">85</span><span style="left:100%">100</span></div>
+          <div class="bars">
+            <div class="bar"><span>Reading</span><div><i id="b-read"></i></div><em id="v-read"></em></div>
+            <div class="bar"><span>Writing</span><div><i id="b-write"></i></div><em id="v-write"></em></div>
+            <div class="bar m"><span>Math (predicted)</span><div><i id="b-math"></i></div><em id="v-math"></em></div>
+          </div>
+          <p class="note">Performance bands are a visual guide only. The score comes straight from the trained model.</p>
         </div>
+      </div>
+      <a href="#predict" class="btn ghost dark" id="again">Predict another student</a>
+    </div>
+  </div>
+</section>
 
-    </section>
+<section class="sec wrap" id="about">
+  <div class="about rv">
+    <span class="eyebrow">About The Project</span>
+    <h2>An end-to-end machine learning project</h2>
+    <p>Student Performance Indicator is an end-to-end Machine Learning project developed using Python, Flask, Pandas, NumPy and Scikit-Learn. The model predicts student Mathematics scores based on factors such as Gender, Ethnicity, Parental Education, Lunch Type, Test Preparation Course, Reading Score and Writing Score.</p>
+    <div class="tags"><span>Python</span><span>Flask</span><span>Pandas</span><span>NumPy</span><span>Scikit-Learn</span></div>
+    <a href="#predict" class="btn"><span>Predict Now</span><svg class="ic"><use href="#i-arrow"/></svg></a>
+  </div>
+</section>
+</main>
 
-    <section class="features">
-
-        <div class="section-title">
-            <h2>Project Features</h2>
-        </div>
-
-        <div class="feature-grid">
-
-            <div class="card">
-                <h3>📊 Smart Prediction</h3>
-                <p>Predict Mathematics scores using Machine Learning algorithms.</p>
-            </div>
-
-            <div class="card">
-                <h3>⚡ Instant Results</h3>
-                <p>Get predictions within seconds after entering student details.</p>
-            </div>
-
-            <div class="card">
-                <h3>🎯 Accurate Insights</h3>
-                <p>Uses academic and demographic factors for better accuracy.</p>
-            </div>
-
-            <div class="card">
-                <h3>💻 User Friendly</h3>
-                <p>Modern responsive interface designed for all devices.</p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <section class="about">
-
-        <div class="about-box">
-            <h2>About The Project</h2>
-
-            <p>
-                Student Performance Indicator is an end-to-end Machine Learning
-                project developed using Python, Flask, Pandas, NumPy and
-                Scikit-Learn. The model predicts student Mathematics scores
-                based on factors such as Gender, Ethnicity, Parental Education,
-                Lunch Type, Test Preparation Course, Reading Score and
-                Writing Score.
-            </p>
-
-            <br>
-
-            <a href="/predictdata" class="btn">
-                Predict Now
-            </a>
-        </div>
-
-    </section>
-
-    <footer>
-        © 2026 Student Performance Indicator | Developed by Divyesh Chavda
-    </footer>
-
+<footer class="foot"><div class="wrap foot-in">
+  <span class="brand sm"><span class="logo"><svg class="ic"><use href="#i-logo"/></svg></span>Student Performance Predictor</span>
+  <span>&copy; 2026 Student Performance Indicator | Developed by Divyesh Chavda</span>
+  <a href="https://github.com/DivyeshChavda77/Student_Performance_Indicator" target="_blank" rel="noopener">GitHub Repo</a>
+</div></footer>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
