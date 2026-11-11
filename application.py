@@ -16,6 +16,10 @@ app = application
 def index():
     return render_template('index.html')
 
+@app.route('/favicon.ico')
+def favicon():
+    return redirect(url_for('static', filename='favicon.svg'))
+
 def _wants_json():
     # The new single-page UI calls this route with fetch() and expects JSON.
     return (request.headers.get('X-Requested-With') == 'XMLHttpRequest'
